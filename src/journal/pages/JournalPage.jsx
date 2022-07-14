@@ -1,12 +1,14 @@
-import { MailOutline } from "@mui/icons-material";
+
 import { Typography } from "@mui/material";
+import { JournalLayout } from "../layout/JournalLayout";
 
-
+const drawerWidth = 240
 export const JournalPage = () => {
   return (
-    <>
-      <Typography variant="h3">JournalPage</Typography>
-      <MailOutline />
-    </>
+   <JournalLayout>
+    <Typography>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab enim deserunt sunt quasi animi, mollitia repudiandae tempora! Hic quisquam consequuntur ut, perferendis deleniti soluta veniam incidunt enim, amet temporibus adipisci.
+    </Typography>
+   </JournalLayout>
   );
 };
