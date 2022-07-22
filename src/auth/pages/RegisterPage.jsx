@@ -6,9 +6,9 @@ import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
 
 const data = {
-  email: "iavn@gmail.com",
-  password: "123456",
-  displayName: "ivan",
+  email: "",
+  password: "",
+  displayName: "",
 };
 
 const formValidations = {
@@ -24,9 +24,7 @@ const formValidations = {
 };
 
 export const RegisterPage = () => {
-  
   const [formSubmited, setFormSubmited] = useState(false);
-
   const {
     displayName,
     email,
@@ -35,7 +33,7 @@ export const RegisterPage = () => {
     formState,
     isFormValid,
     emailValid,
-    passswordValid,
+    passwordValid,
     displayNameValid,
   } = useForm(data, formValidations);
 
@@ -44,6 +42,7 @@ export const RegisterPage = () => {
 
     setFormSubmited(true);
 
+    if(!isFormValid)return;
     console.log(formState);
   };
 
@@ -74,21 +73,21 @@ export const RegisterPage = () => {
               name="email"
               value={email}
               onChange={onInputChange}
-              error={emailValid && formSubmited}
+              error={!!emailValid && formSubmited}
               helperText={emailValid}
             />
           </Grid>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
-              label="password"
+              label="pass"
               type="password"
               placeholder="password"
               fullWidth
               name="password"
               value={password}
               onChange={onInputChange}
-              error={!!passswordValid && formSubmited}
-              helperText={passswordValid}
+              error={!!passwordValid && formSubmited}
+              helperText={passwordValid}
             />
           </Grid>
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
