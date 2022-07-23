@@ -1,9 +1,11 @@
 //asyn task
 
-import { async } from "@firebase/util";
+
 import {
+  logInWithEmailPassword,
   registerUserWithEmailPassword,
   signInWithGoogle,
+ 
 } from "../../firerbase/providers";
 import { checkingCredentials, login, logout } from "./authSlice";
 
@@ -12,6 +14,7 @@ export const checkingAuthentication = (email, password) => {
     dispatch(checkingCredentials());
   };
 };
+
 export const startGoogleSignIn = () => {
   return async (dispatch) => {
     dispatch(checkingCredentials());
@@ -19,8 +22,11 @@ export const startGoogleSignIn = () => {
     const result = await signInWithGoogle();
     if (!result.ok) return dispatch(logout(result.errorMessage));
     dispatch(login(result));
+    
   };
 };
+
+
 export const startCreatingUserWithEmailPassword = ({
   email,
   password,
@@ -39,3 +45,19 @@ export const startCreatingUserWithEmailPassword = ({
    dispatch(login({uid,displayName,email,photoURL}))
   };
 };
+
+
+
+export const startLogInWithEmailPassword = ({email,password})=>{
+  return async (dispatch)=>{
+
+    dispatch(checkingCredentials());
+
+    //function provider
+    const resp = await logInWithEmailPassword({email,password});
+    if(!resp.ok)return dispatch(logout(resp))
+    dispatch(login(resp))
+   
+
+  }
+}
