@@ -3,6 +3,7 @@
 
 import {
   logInWithEmailPassword,
+  logOutFireBase,
   registerUserWithEmailPassword,
   signInWithGoogle,
  
@@ -56,8 +57,15 @@ export const startLogInWithEmailPassword = ({email,password})=>{
     //function provider
     const resp = await logInWithEmailPassword({email,password});
     if(!resp.ok)return dispatch(logout(resp))
-    dispatch(login(resp))
+    dispatch( login(resp) )
    
 
   }
+}
+export const startLogOut =  (dispatch)=>{
+return async (dispatch)=>{
+
+  await logOutFireBase();
+  dispatch( logout() )
+}
 }
