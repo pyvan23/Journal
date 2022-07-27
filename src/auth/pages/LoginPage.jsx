@@ -12,11 +12,13 @@ import {
   startLogInWithEmailPassword,
 } from "../../store/auth/thunks";
 
-export const LoginPage = () => {
-  const { email, password, onInputChange } = useForm({
+const formData ={
      email: "",
      password: "",
-  });
+  } 
+
+export const LoginPage = () => {
+  const { email, password, onInputChange } = useForm(formData);
   const { status,errorMessage } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
