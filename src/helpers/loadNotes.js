@@ -12,6 +12,6 @@ export const loadNotes = async(uid='')=>{
     //data es una funcion que viene en el prototype
    notes.push({id:doc.id,...doc.data()})
   })
-  console.log(notes)
+
   return notes
 }

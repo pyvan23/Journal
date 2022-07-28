@@ -9,7 +9,7 @@ export const journalSlice = createSlice({
     active: null,
   },
   reducers: {
-    savingNewNote: (state,action) => {
+    savingNewNote: (state, action) => {
       state.isSaving = true;
     },
     addNewEmptyNote: (state, action) => {
@@ -18,15 +18,26 @@ export const journalSlice = createSlice({
     },
     setActiveNote: (state, action) => {
       state.active = action.payload;
+      state.messageSaved = '';
     },
-    setNotes: (state ,action) => {
-      state.notes = action.payload
-      
+    setNotes: (state, action) => {
+      state.notes = action.payload;
     },
     setSaving: (state) => {
-
+      state.isSaving = true;
+      state.messageSaved = '';
     },
-    updateNote: (state, action) => {},
+    updateNote: (state, action) => {
+      state.isSaving = false;
+      state.notes = state.notes.map((note) => {
+        if (note.id === action.payload.id) {
+          return action.payload;
+        }
+
+        return note;
+      });
+      state.messageSaved = `${action.payload.title},succesfully updated`
+    },
     deleteNoteById: (state, action) => {},
   },
 });
@@ -39,5 +50,5 @@ export const {
   setSaving,
   updateNote,
   deleteNoteById,
-  savingNewNote
+  savingNewNote,
 } = journalSlice.actions;
