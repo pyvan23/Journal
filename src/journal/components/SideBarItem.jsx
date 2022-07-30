@@ -15,6 +15,7 @@ export const SideBarItem = ({title='',body,id,date,imageUrl=[]}) => {
   }
   
   const newTitle = useMemo(() => {
+    
   return title.length > 17 ? title.substring(0,17) + '...' : title}, [title])
 
 

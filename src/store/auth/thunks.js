@@ -8,6 +8,7 @@ import {
   signInWithGoogle,
  
 } from "../../firerbase/providers";
+import { clearJournalLogOut } from "../journal/journalSlice";
 import { checkingCredentials, login, logout } from "./authSlice";
 
 export const checkingAuthentication = (email, password) => {
@@ -66,6 +67,7 @@ export const startLogOut =  (dispatch)=>{
 return async (dispatch)=>{
 
   await logOutFireBase();
+  dispatch(clearJournalLogOut())
   dispatch( logout() )
 }
 }

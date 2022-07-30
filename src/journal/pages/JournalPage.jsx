@@ -9,11 +9,11 @@ import { startNewNote } from "../../store/journal/journalThunks";
 
 const drawerWidth = 240
 export const JournalPage = () => {
- const {isSaving,active} = useSelector(state=>state.journal)
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+ const { isSaving , active } = useSelector( state=>state.journal )
 
 const onClickNewNote = ()=>{
-  dispatch(startNewNote())
+  dispatch( startNewNote() )
 }
 
   return (
