@@ -7,16 +7,24 @@ import {AddOutlined} from '@mui/icons-material'
 import { useDispatch, useSelector } from "react-redux";
 import { startNewNote } from "../../store/journal/journalThunks";
 
-const drawerWidth = 240
-export const JournalPage = () => {
-  const dispatch = useDispatch();
- const { isSaving , active } = useSelector( state=>state.journal )
 
-const onClickNewNote = ()=>{
-  dispatch( startNewNote() )
+
+const drawerWidth = 240
+
+
+export const JournalPage = () => {
+
+  const dispatch = useDispatch();
+
+  const { isSaving , active } = useSelector( state=>state.journal );
+
+  const onClickNewNote = () => {
+
+  dispatch( startNewNote() );
 }
 
   return (
+    
    <JournalLayout>
     {/* <Typography>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab enim deserunt sunt quasi animi, mollitia repudiandae tempora! Hic quisquam consequuntur ut, perferendis deleniti soluta veniam incidunt enim, amet temporibus adipisci.
@@ -37,10 +45,12 @@ const onClickNewNote = ()=>{
     position:'fixed',
     right:50,bottom:50
     }}>
-      <AddOutlined sx={{fontSize:30}}/>
+      <AddOutlined sx={{ fontSize:30 }} />
       
     </IconButton>
+
     {/* <NoteView/> */}
+
    </JournalLayout>
   );
 };
