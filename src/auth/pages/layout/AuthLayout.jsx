@@ -4,7 +4,7 @@ export const AuthLayout = ({ children , title = ""}) => {
   return (
     <Grid
       container
-      spacing={0}
+      spacing={ 0 }
       direction="column"
       alignItems="center"
       justifyContent="center"
