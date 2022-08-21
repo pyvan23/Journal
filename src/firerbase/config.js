@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore/lite";
-import { getEnviroment } from "../helpers/getEnviroments";
+import { getEnviroments } from "../helpers/getEnviroments";
 
 const {
   VITE_APIKEY,
@@ -13,7 +13,7 @@ const {
   VITE_STORAGEBUCKET,
   VITE_MESSAGINGSENDERID,
   VITE_APPID,
-} = getEnviroment();
+} = getEnviroments();
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: VITE_APIKEY,
